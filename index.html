@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>EndSlide</title>
+</head>
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        user-select: none;
+        overflow-x: hidden;
+    }
+
+    html{
+        scroll-behavior: smooth;
+    }
+
+    .navbar{
+        width: 100%;
+        background: white;
+        display: flex;
+        top: 0;
+        z-index: 1;
+    }
+
+    .nav-list{
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nav-list li{
+        padding: 20px;
+        list-style: none;
+        text-decoration: none;
+        justify-self: center;
+        justify-content: center;
+        align-self: center;
+        margin: 4px 4px;
+    }
+
+
+    .nav-list li a{
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-list li a:hover{
+        color: rgb(132, 10, 189);
+    }
+
+    .first-sec{
+        margin-top: 11%;
+    }
+
+    .heading{
+        text-align: center;
+        margin: 1em;
+        font-size: 3em;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 3px;
+    }
+
+    .heading-small{
+        text-align: center;
+        margin: 1em;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 3px;
+    }
+
+    .btn-big{
+        width: 20em;
+        background: rgb(132, 10, 189);
+        padding: 7px;
+        font-size: 1.6em;
+        border: none;
+        outline: none;
+        font-family: 'Poppins', sans-serif;
+        margin: 0 auto;
+        display: block;
+        color: white;
+        border-radius: 0.9em;
+    }
+
+    .search-box{
+        top: 22px;
+        position: absolute;
+        margin-right: 9px;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .search-input{
+        font-size: 18px;
+        padding: 6px;
+        border-top: none;
+        outline: none;
+        background: none;
+        border-left: none;
+        border-right: none;
+        border-bottom-color: rgb(132, 10, 189);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .search-btn{
+        padding: 13px;
+        margin-left: 7px;
+        border: none;
+        outline: none;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+
+    .fa-search{
+        font-size: 19px;
+    }
+
+    .seconed-sec{
+        position: relative;
+        margin-top: 8rem;
+    }
+
+    .video-container{
+        position: relative;
+        text-align:center;
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        overflow: hidden;
+    }
+
+    .res-iframe{
+        border: none;
+    }
+
+    .video-text{
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    .control-button-box{
+        width: 35em;
+        height: 3em;
+        display: flex;
+        margin: 8px auto!important;
+        display: block;
+    }
+
+    .control-button{
+        padding: 9px;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        margin: 0 20px;
+        background: rgb(0, 0, 0);
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .previous-btn{
+        position: relative;
+        left: 0;
+    }
+
+    .card-sec{
+        display: flex;
+        margin-top: 7%;
+    }
+
+    .card{
+        width: 21rem;
+        height: 29em;
+        border-radius: 10px;
+        background-color: white;
+        margin: auto auto;
+        box-shadow: 0px 3px 30px 0px rgba(0, 0, 0, 0.219);
+        user-select: none;
+    }
+
+    .card-img{
+        width: 10em;
+        height: 10em;
+        margin: 3em 5.5em;
+        user-select: none;
+    }
+    
+    .card-title{
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
+
+    .card-content{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .card-content-text{
+        margin: 8px 8px;
+    }
+
+    .footer {
+        left: 0;
+        margin-top: 3rem;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        text-align: center;
+        padding: 2em;
+    }
+
+    .footer-text{
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+    }
+
+    .line1{
+        width: 21px;
+        height: 4px;
+        margin: 7px 1px;
+        background: black;
+        border-radius: 0.5em;
+        transition: all 0.5s ease-in-out;
+    }
+    .line2{
+        width: 33px;
+        height: 4px;
+        background: black;
+        border-radius: 0.5em;
+    }
+
+
+    .line3{
+        width: 21px;
+        height: 4px;
+        background: black;
+        margin: 7px 11px;
+        border-radius: 0.5em;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .line1-animation{
+        opacity: 0;
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+    .line3-animation{
+        opacity: 0;
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+
+    .ham-menu{
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 2%;
+        display: none;
+    }
+
+    .card-title{
+        margin-top: 14px;
+    }
+
+
+    @media screen and (max-width: 1156px){
+    	
+    	    body{
+    	    	   overflow-x: hidden;
+    	    }
+        .navbar{
+            flex-direction: column;
+            background: white;
+            overflow: hidden;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .nav-list li a{
+            font-size: 1.1em;
+        }
+
+        .search-input{
+            font-size: 16px;
+            padding: 4px;
+        }
+
+        .fa-search{
+            font-size: 18px;
+        }
+
+        .navbar-height-responsive{
+            height: 20rem!important;
+        }
+
+        .navbar-height-normal{
+            height: 3rem;
+        }
+
+
+        .nav-list{
+            flex-direction: column;
+            background: white;
+            align-self: center;
+            width: 22%;
+            overflow: hidden;
+            margin-top: 4em;
+        }
+
+        .search-box{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .search-input{
+            width: 10em;
+        }
+        .ham-menu{
+            display: block;
+        }
+
+        .card-sec{
+            flex-direction: column!important;
+        }
+        .card{
+            width: 16rem;
+            height: 24em;
+            margin: 17px auto;
+        }
+        .card-img{
+            width: 6em;
+            height: 6em;
+        }
+
+        .res-iframe{
+            width: 19em;
+            height: 11em;
+        }
+        .card-content-text{
+            margin: 7px 7px;
+        }
+
+        .heading{
+            font-size: 2.4em;
+        }
+        .btn-big{
+            width: 13em;
+            font-size: 1.4em;
+        }
+
+        .control-button-box{
+            width: 22em;
+        }
+
+        .control-button{
+            padding: 9px;
+            font-size: 15px;
+            margin-left: 10px;
+            margin-right: 41px;
+        }
+        
+        
+        .hide-btn{
+            display: none;
+        }
+
+        .footer-text{
+            font-size: 14px;
+        }
+    }
+</style>
+<body>
+    <nav class="navbar navbar-height-normal" id="navbar-height-normal">
+        <div class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Videos</a></li>
+        </div>
+        <div class="search-box">
+            <input class="search-input" placeholder="Search EndSlide">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="ham-menu" onclick="ham()">
+            <div class="line1 ham-icon" id="line1" onclick="navbar()"></div>
+            <div class="line2 ham-icon" id="line2" onclick="navbar()"></div>
+            <div class="line3 ham-icon" id="line3" onclick="navbar()"></div>
+        </div>
+    </nav>
+
+    <section class="first-sec">
+        <h1 class="heading">ENDSLIDE</h1>
+        <button class="btn-big">LEARN WEB DESIGNING</button>
+    </section>
+    <section class="seconed-sec">
+        <div class="seconed-sec-box">
+            <h2 class="videos-head video-text">Web Designing Course</h2>
+            <h3 class="video-title video-text">Day 1 Introduction</h3>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Ea9CsItRb9U" class="res-iframe" id="iframe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="control-button-box">
+                <button class="control-button previous-btn" id="playprevious-btn"><i class="fas fa-arrow-left" style="margin-right: 7px;"></i>Play Previous</button>
+                <button class="control-button hide-btn" onclick="hideplayer()" id="hide-btn" href="javascript:void(0);">Hide Player</button>
+                <button class="control-button next-btn" id="#playnext-btn"></i>Play Next<i class="fas fa-arrow-right" style="margin-left: 7px;"></i></button>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="card-sec">
+        <div class="card">
+            <h2 class="card-title">Responsive</h2>
+            <img src="multiscreen.png" class="card-img">
+            <div class="card-content">
+                <p class="card-content-text">Built-in Responsiveness</p>
+                <p class="card-content-text">Mobile First Fluid Grid</p>
+                <p class="card-content-text">Fits Any Screen Sizes</p>
+                <p class="card-content-text">PC Tablet And Mobile</p>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="card-title">Standard CSS</h2>
+            <img src="css-3.png" class="card-img">
+            <div class="card-content">
+                <p class="card-content-text">Standard CSS only</p>
+                <p class="card-content-text">Easy To Learn</p>
+                <p class="card-content-text">No Need For JQuery</p>
+                <p class="card-content-text">No JavaScript Library</p>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="card-title">Designing</h2>
+            <img src="graphic-designer.png" class="card-img">
+            <div class="card-content">
+                <p class="card-content-text">Paper Like Design</p>
+                <p class="card-content-text">Bold Colors And Shadows</p>
+                <p class="card-content-text">Equal Across Platforms</p>
+                <p class="card-content-text">Equal Across Devices</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p class="footer-text">Copyright <i class="far fa-copyright"></i> 2020-2021 EndSlide. All rights reserved.</p>
+      </div>
+
+
+
+
+     <script>
+         function navbar() {
+            var element = document.getElementById("navbar-height-normal");
+  element.classList.toggle("navbar-height-responsive");
+         }
+     </script>
+    
+      <script>
+        function ham() {
+            var element = document.getElementById("line1");
+  element.classList.toggle("line1-animation");
+            var element = document.getElementById("line3");
+  element.classList.toggle("line3-animation");
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/329ecc228d.js" crossorigin="anonymous"></script>
+    <script>
+        function hideplayer() {
+            i = document.getElementById("iframe");
+            b = document.getElementById("hide-btn");
+
+            if(i.style.opacity === "1" && b.innerHTML === "Hide Player"){
+                i.style.opacity = "0"; b.innerHTML = "Show Player";
+            }else{
+                i.style.opacity = "1";
+                b.innerHTML = "Hide Player"
+            }
+
+            
+        }
+    </script>
+    <script>
+        AOS.init({
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 300, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 500, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: false, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+        });
+    </script>
+</body>
+</html>
